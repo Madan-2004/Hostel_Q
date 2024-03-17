@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% load socialaccount %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -739,9 +740,12 @@
                     <p><a href="">Forgot Password?</a></p>
                 </div>
                 <button type="submit" class="submit">Sign in</button>
-                <button type="button" class="login-with-google-btn" >
+                {{ form.as_p }}
+                <a href="{% provider_login_url 'google' %}" >
+                <button type="button" class="login-with-google-btn">
                     Sign in with Google
                 </button>
+                </a>
                 <p>Do not have an account? <a href="#" id="clickreg">Register</a></p>
             </form>
             <form action="{% url 'signup' %}" method="post" id="register">
